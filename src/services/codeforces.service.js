@@ -20,16 +20,16 @@ let lastRequestTime = 0;
  * Wait to respect rate limits
  */
 async function respectRateLimit() {
-  const now = Date.now();
-  const timeSinceLastRequest = now - lastRequestTime;
+	const now = Date.now();
+	const timeSinceLastRequest = now - lastRequestTime;
 
-  if (timeSinceLastRequest < REQUEST_DELAY) {
-    await new Promise((resolve) =>
-      setTimeout(resolve, REQUEST_DELAY - timeSinceLastRequest)
-    );
-  }
+	if (timeSinceLastRequest < REQUEST_DELAY) {
+		await new Promise((resolve) =>
+			setTimeout(resolve, REQUEST_DELAY - timeSinceLastRequest),
+		);
+	}
 
-  lastRequestTime = Date.now();
+	lastRequestTime = Date.now();
 }
 
 /**
@@ -39,30 +39,30 @@ async function respectRateLimit() {
  * @returns {Promise<Object>} API response data
  */
 async function makeRequest(endpoint, params = {}) {
-  await respectRateLimit();
+	await respectRateLimit();
 
-  try {
-    const response = await axios.get(`${CODEFORCES_API_BASE}${endpoint}`, {
-      params,
-      timeout: 15000,
-    });
+	try {
+		const response = await axios.get(`${CODEFORCES_API_BASE}${endpoint}`, {
+			params,
+			timeout: 15000,
+		});
 
-    if (response.data.status !== "OK") {
-      throw new Error(response.data.comment || "Codeforces API error");
-    }
+		if (response.data.status !== "OK") {
+			throw new Error(response.data.comment || "Codeforces API error");
+		}
 
-    return response.data.result;
-  } catch (error) {
-    if (error.response) {
-      // Codeforces returned an error response
-      const message = error.response.data?.comment || error.message;
-      throw new Error(`Codeforces API error: ${message}`);
-    }
-    if (error.code === "ECONNABORTED") {
-      throw new Error("Codeforces API request timed out");
-    }
-    throw error;
-  }
+		return response.data.result;
+	} catch (error) {
+		if (error.response) {
+			// Codeforces returned an error response
+			const message = error.response.data?.comment || error.message;
+			throw new Error(`Codeforces API error: ${message}`);
+		}
+		if (error.code === "ECONNABORTED") {
+			throw new Error("Codeforces API request timed out");
+		}
+		throw error;
+	}
 }
 
 /**
@@ -71,15 +71,15 @@ async function makeRequest(endpoint, params = {}) {
  * @returns {Promise<boolean>} True if user exists
  */
 export async function validateUser(username) {
-  try {
-    await makeRequest("/user.info", { handles: username });
-    return true;
-  } catch (error) {
-    if (error.message.includes("not found")) {
-      return false;
-    }
-    throw error;
-  }
+	try {
+		await makeRequest("/user.info", { handles: username });
+		return true;
+	} catch (error) {
+		if (error.message.includes("not found")) {
+			return false;
+		}
+		throw error;
+	}
 }
 
 /**
@@ -88,30 +88,30 @@ export async function validateUser(username) {
  * @returns {Promise<Object>} User info object
  */
 export async function getUserInfo(username) {
-  try {
-    const users = await makeRequest("/user.info", { handles: username });
+	try {
+		const users = await makeRequest("/user.info", { handles: username });
 
-    if (!users || users.length === 0) {
-      throw new Error(`User "${username}" not found`);
-    }
+		if (!users || users.length === 0) {
+			throw new Error(`User "${username}" not found`);
+		}
 
-    const user = users[0];
+		const user = users[0];
 
-    return {
-      handle: user.handle,
-      rank: user.rank || "unrated",
-      rating: user.rating || 0,
-      maxRank: user.maxRank || "unrated",
-      maxRating: user.maxRating || 0,
-      avatar: user.avatar,
-      titlePhoto: user.titlePhoto,
-    };
-  } catch (error) {
-    if (error.message.includes("not found")) {
-      throw new Error(`Codeforces user "${username}" not found`);
-    }
-    throw error;
-  }
+		return {
+			handle: user.handle,
+			rank: user.rank || "unrated",
+			rating: user.rating || 0,
+			maxRank: user.maxRank || "unrated",
+			maxRating: user.maxRating || 0,
+			avatar: user.avatar,
+			titlePhoto: user.titlePhoto,
+		};
+	} catch (error) {
+		if (error.message.includes("not found")) {
+			throw new Error(`Codeforces user "${username}" not found`);
+		}
+		throw error;
+	}
 }
 
 /**
@@ -121,26 +121,26 @@ export async function getUserInfo(username) {
  * @returns {Promise<Array>} Array of submissions
  */
 export async function getRecentSubmissions(username, count = 10) {
-  try {
-    const submissions = await makeRequest("/user.status", {
-      handle: username,
-      from: 1,
-      count,
-    });
+	try {
+		const submissions = await makeRequest("/user.status", {
+			handle: username,
+			from: 1,
+			count,
+		});
 
-    return submissions.map((sub) => ({
-      id: sub.id,
-      contestId: sub.problem.contestId,
-      problemIndex: sub.problem.index,
-      problemName: sub.problem.name,
-      verdict: sub.verdict,
-      creationTimeSeconds: sub.creationTimeSeconds,
-      programmingLanguage: sub.programmingLanguage,
-    }));
-  } catch (error) {
-    console.error("Error fetching submissions:", error.message);
-    throw error;
-  }
+		return submissions.map((sub) => ({
+			id: sub.id,
+			contestId: sub.problem.contestId,
+			problemIndex: sub.problem.index,
+			problemName: sub.problem.name,
+			verdict: sub.verdict,
+			creationTimeSeconds: sub.creationTimeSeconds,
+			programmingLanguage: sub.programmingLanguage,
+		}));
+	} catch (error) {
+		console.error("Error fetching submissions:", error.message);
+		throw error;
+	}
 }
 
 /**
@@ -156,67 +156,67 @@ export async function getRecentSubmissions(username, count = 10) {
  * @returns {Promise<Object>} Verification result
  */
 export async function checkCompilationErrorSubmission(
-  username,
-  contestId,
-  problemIndex,
-  startedAt
+	username,
+	contestId,
+	problemIndex,
+	startedAt,
 ) {
-  try {
-    // Fetch recent submissions (last 20 to be safe)
-    const submissions = await getRecentSubmissions(username, 20);
+	try {
+		// Fetch recent submissions (last 20 to be safe)
+		const submissions = await getRecentSubmissions(username, 20);
 
-    // Find a matching CE submission
-    const matchingSubmission = submissions.find((sub) => {
-      // Check if it's the correct problem
-      const isProblemMatch =
+		// Find a matching CE submission
+		const matchingSubmission = submissions.find((sub) => {
+			// Check if it's the correct problem
+			const isProblemMatch =
         sub.contestId === contestId &&
         sub.problemIndex.toUpperCase() === problemIndex.toUpperCase();
 
-      // Check if verdict is Compilation Error
-      const isCompilationError = sub.verdict === "COMPILATION_ERROR";
+			// Check if verdict is Compilation Error
+			const isCompilationError = sub.verdict === "COMPILATION_ERROR";
 
-      // Check if submission was made after verification started
-      const isAfterStart = isSubmissionAfterStart(
-        sub.creationTimeSeconds,
-        startedAt
-      );
+			// Check if submission was made after verification started
+			const isAfterStart = isSubmissionAfterStart(
+				sub.creationTimeSeconds,
+				startedAt,
+			);
 
-      return isProblemMatch && isCompilationError && isAfterStart;
-    });
+			return isProblemMatch && isCompilationError && isAfterStart;
+		});
 
-    if (matchingSubmission) {
-      return {
-        verified: true,
-        submission: matchingSubmission,
-        message: "Compilation Error submission found!",
-      };
-    }
+		if (matchingSubmission) {
+			return {
+				verified: true,
+				submission: matchingSubmission,
+				message: "Compilation Error submission found!",
+			};
+		}
 
-    // Check if there are any submissions to the problem (but wrong verdict)
-    const anyProblemSubmission = submissions.find(
-      (sub) =>
-        sub.contestId === contestId &&
+		// Check if there are any submissions to the problem (but wrong verdict)
+		const anyProblemSubmission = submissions.find(
+			(sub) =>
+				sub.contestId === contestId &&
         sub.problemIndex.toUpperCase() === problemIndex.toUpperCase() &&
-        isSubmissionAfterStart(sub.creationTimeSeconds, startedAt)
-    );
+        isSubmissionAfterStart(sub.creationTimeSeconds, startedAt),
+		);
 
-    if (anyProblemSubmission) {
-      return {
-        verified: false,
-        submission: anyProblemSubmission,
-        message: `Found submission but verdict was "${anyProblemSubmission.verdict}" instead of "COMPILATION_ERROR"`,
-      };
-    }
+		if (anyProblemSubmission) {
+			return {
+				verified: false,
+				submission: anyProblemSubmission,
+				message: `Found submission but verdict was "${anyProblemSubmission.verdict}" instead of "COMPILATION_ERROR"`,
+			};
+		}
 
-    return {
-      verified: false,
-      submission: null,
-      message: "No submission found to the specified problem",
-    };
-  } catch (error) {
-    console.error("Error checking CE submission:", error.message);
-    throw error;
-  }
+		return {
+			verified: false,
+			submission: null,
+			message: "No submission found to the specified problem",
+		};
+	} catch (error) {
+		console.error("Error checking CE submission:", error.message);
+		throw error;
+	}
 }
 
 /**
@@ -225,8 +225,8 @@ export async function checkCompilationErrorSubmission(
  * @returns {Promise<string>} User's rank
  */
 export async function getUserRank(username) {
-  const userInfo = await getUserInfo(username);
-  return userInfo.rank;
+	const userInfo = await getUserInfo(username);
+	return userInfo.rank;
 }
 
 /**
@@ -236,14 +236,14 @@ export async function getUserRank(username) {
  * @returns {string} Problem URL
  */
 export function getProblemUrl(contestId, index) {
-  return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
+	return `https://codeforces.com/problemset/problem/${contestId}/${index}`;
 }
 
 export default {
-  validateUser,
-  getUserInfo,
-  getRecentSubmissions,
-  checkCompilationErrorSubmission,
-  getUserRank,
-  getProblemUrl,
+	validateUser,
+	getUserInfo,
+	getRecentSubmissions,
+	checkCompilationErrorSubmission,
+	getUserRank,
+	getProblemUrl,
 };
