@@ -22,22 +22,6 @@ function getRankColor(rank) {
   return colors[rank?.toLowerCase()] || 0x808080;
 }
 
-function getRankEmoji(rank) {
-  const emojis = {
-    newbie: "⬜",
-    pupil: "🟩",
-    specialist: "🟦",
-    expert: "🔵",
-    "candidate master": "🟣",
-    master: "🟠",
-    "international master": "🟠",
-    grandmaster: "🔴",
-    "international grandmaster": "🔴",
-    "legendary grandmaster": "⭐",
-  };
-  return emojis[rank?.toLowerCase()] || "⬜";
-}
-
 function getPositionDisplay(position) {
   switch (position) {
     case 1:
@@ -47,7 +31,7 @@ function getPositionDisplay(position) {
     case 3:
       return "🥉";
     default:
-      return `**${position}.**`;
+      return ` **${position}.**`;
   }
 }
 
@@ -106,12 +90,11 @@ export async function execute(interaction) {
 
     const entries = leaderboardData.slice(0, 25).map((user, index) => {
       const position = getPositionDisplay(index + 1);
-      const rankEmoji = getRankEmoji(user.rank);
       const ratingDisplay = user.rating > 0 ? user.rating : "Unrated";
       const maxRatingDisplay =
         user.maxRating > 0 ? ` (max: ${user.maxRating})` : "";
 
-      return `${position} ${rankEmoji} **${user.username}** - ${ratingDisplay}${maxRatingDisplay}`;
+      return `${position} **${user.username}** - ${ratingDisplay}${maxRatingDisplay}`;
     });
 
     const chunkSize = 10;
