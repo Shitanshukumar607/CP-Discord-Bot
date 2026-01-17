@@ -14,9 +14,9 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
-	throw new Error(
-		"Missing Supabase environment variables. Please check your .env file.",
-	);
+  throw new Error(
+    "Missing Supabase environment variables. Please check your .env file.",
+  );
 }
 
 // Create Supabase client instance
@@ -32,19 +32,19 @@ export const supabase = createClient(supabaseUrl, supabaseKey);
  * @returns {Promise<Object|null>} Guild config or null if not found
  */
 export async function getGuildConfig(guildId) {
-	const { data, error } = await supabase
-		.from("guild_config")
-		.select("*")
-		.eq("guild_id", guildId)
-		.single();
+  const { data, error } = await supabase
+    .from("guild_config")
+    .select("*")
+    .eq("guild_id", guildId)
+    .single();
 
-	if (error && error.code !== "PGRST116") {
-		// PGRST116 = not found
-		console.error("Error fetching guild config:", error);
-		throw error;
-	}
+  if (error && error.code !== "PGRST116") {
+    // PGRST116 = not found
+    console.error("Error fetching guild config:", error);
+    throw error;
+  }
 
-	return data;
+  return data;
 }
 
 /**
@@ -53,20 +53,20 @@ export async function getGuildConfig(guildId) {
  * @param {string} roleId - Discord role ID
  */
 export async function setVerifiedRole(guildId, roleId) {
-	const { error } = await supabase.from("guild_config").upsert(
-		{
-			guild_id: guildId,
-			verified_role_id: roleId,
-		},
-		{
-			onConflict: "guild_id",
-		},
-	);
+  const { error } = await supabase.from("guild_config").upsert(
+    {
+      guild_id: guildId,
+      verified_role_id: roleId,
+    },
+    {
+      onConflict: "guild_id",
+    },
+  );
 
-	if (error) {
-		console.error("Error setting verified role:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error setting verified role:", error);
+    throw error;
+  }
 }
 
 /**
@@ -76,27 +76,27 @@ export async function setVerifiedRole(guildId, roleId) {
  * @param {string} roleId - Discord role ID
  */
 export async function setRankRole(guildId, rank, roleId) {
-	// First, get existing config
-	const existing = await getGuildConfig(guildId);
-	const currentMap = existing?.rank_role_map || {};
+  // First, get existing config
+  const existing = await getGuildConfig(guildId);
+  const currentMap = existing?.rank_role_map || {};
 
-	// Update the rank mapping
-	const newMap = { ...currentMap, [rank.toLowerCase()]: roleId };
+  // Update the rank mapping
+  const newMap = { ...currentMap, [rank.toLowerCase()]: roleId };
 
-	const { error } = await supabase.from("guild_config").upsert(
-		{
-			guild_id: guildId,
-			rank_role_map: newMap,
-		},
-		{
-			onConflict: "guild_id",
-		},
-	);
+  const { error } = await supabase.from("guild_config").upsert(
+    {
+      guild_id: guildId,
+      rank_role_map: newMap,
+    },
+    {
+      onConflict: "guild_id",
+    },
+  );
 
-	if (error) {
-		console.error("Error setting rank role:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error setting rank role:", error);
+    throw error;
+  }
 }
 
 // =====================================================
@@ -109,48 +109,48 @@ export async function setRankRole(guildId, rank, roleId) {
  * @returns {Promise<Object>} Created verification record
  */
 export async function createPendingVerification(verification) {
-	const {
-		discord_user_id,
-		guild_id,
-		platform,
-		username,
-		problem_id,
-		problem_url,
-		problem_name,
-		expires_at,
-	} = verification;
+  const {
+    discord_user_id,
+    guild_id,
+    platform,
+    username,
+    problem_id,
+    problem_url,
+    problem_name,
+    expires_at,
+  } = verification;
 
-	// First, delete any existing pending verification for this user/platform/username
-	await supabase
-		.from("pending_verifications")
-		.delete()
-		.eq("discord_user_id", discord_user_id)
-		.eq("guild_id", guild_id)
-		.eq("platform", platform)
-		.eq("username", username);
+  // First, delete any existing pending verification for this user/platform/username
+  await supabase
+    .from("pending_verifications")
+    .delete()
+    .eq("discord_user_id", discord_user_id)
+    .eq("guild_id", guild_id)
+    .eq("platform", platform)
+    .eq("username", username);
 
-	// Create new pending verification
-	const { data, error } = await supabase
-		.from("pending_verifications")
-		.insert({
-			discord_user_id,
-			guild_id,
-			platform,
-			username,
-			problem_id,
-			problem_url,
-			problem_name,
-			expires_at,
-		})
-		.select()
-		.single();
+  // Create new pending verification
+  const { data, error } = await supabase
+    .from("pending_verifications")
+    .insert({
+      discord_user_id,
+      guild_id,
+      platform,
+      username,
+      problem_id,
+      problem_url,
+      problem_name,
+      expires_at,
+    })
+    .select()
+    .single();
 
-	if (error) {
-		console.error("Error creating pending verification:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error creating pending verification:", error);
+    throw error;
+  }
 
-	return data;
+  return data;
 }
 
 /**
@@ -160,19 +160,19 @@ export async function createPendingVerification(verification) {
  * @returns {Promise<Array>} Array of pending verifications
  */
 export async function getPendingVerifications(discordUserId, guildId) {
-	const { data, error } = await supabase
-		.from("pending_verifications")
-		.select("*")
-		.eq("discord_user_id", discordUserId)
-		.eq("guild_id", guildId)
-		.gt("expires_at", new Date().toISOString()); // Only non-expired
+  const { data, error } = await supabase
+    .from("pending_verifications")
+    .select("*")
+    .eq("discord_user_id", discordUserId)
+    .eq("guild_id", guildId)
+    .gt("expires_at", new Date().toISOString()); // Only non-expired
 
-	if (error) {
-		console.error("Error fetching pending verifications:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error fetching pending verifications:", error);
+    throw error;
+  }
 
-	return data || [];
+  return data || [];
 }
 
 /**
@@ -180,15 +180,15 @@ export async function getPendingVerifications(discordUserId, guildId) {
  * @param {string} verificationId - UUID of the verification
  */
 export async function deletePendingVerification(verificationId) {
-	const { error } = await supabase
-		.from("pending_verifications")
-		.delete()
-		.eq("id", verificationId);
+  const { error } = await supabase
+    .from("pending_verifications")
+    .delete()
+    .eq("id", verificationId);
 
-	if (error) {
-		console.error("Error deleting pending verification:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error deleting pending verification:", error);
+    throw error;
+  }
 }
 
 /**
@@ -196,18 +196,18 @@ export async function deletePendingVerification(verificationId) {
  * @returns {Promise<number>} Number of deleted records
  */
 export async function cleanupExpiredVerifications() {
-	const { data, error } = await supabase
-		.from("pending_verifications")
-		.delete()
-		.lt("expires_at", new Date().toISOString())
-		.select();
+  const { data, error } = await supabase
+    .from("pending_verifications")
+    .delete()
+    .lt("expires_at", new Date().toISOString())
+    .select();
 
-	if (error) {
-		console.error("Error cleaning up expired verifications:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error cleaning up expired verifications:", error);
+    throw error;
+  }
 
-	return data?.length || 0;
+  return data?.length || 0;
 }
 
 // =====================================================
@@ -220,33 +220,33 @@ export async function cleanupExpiredVerifications() {
  * @returns {Promise<Object>} Created account record
  */
 export async function createLinkedAccount(account) {
-	const { discord_user_id, guild_id, platform, username, rank } = account;
+  const { discord_user_id, guild_id, platform, username, rank } = account;
 
-	const { data, error } = await supabase
-		.from("linked_accounts")
-		.upsert(
-			{
-				discord_user_id,
-				guild_id,
-				platform,
-				username,
-				verified: true,
-				verified_at: new Date().toISOString(),
-				rank,
-			},
-			{
-				onConflict: "discord_user_id,guild_id,platform,username",
-			},
-		)
-		.select()
-		.single();
+  const { data, error } = await supabase
+    .from("linked_accounts")
+    .upsert(
+      {
+        discord_user_id,
+        guild_id,
+        platform,
+        username,
+        verified: true,
+        verified_at: new Date().toISOString(),
+        rank,
+      },
+      {
+        onConflict: "discord_user_id,guild_id,platform,username",
+      },
+    )
+    .select()
+    .single();
 
-	if (error) {
-		console.error("Error creating linked account:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error creating linked account:", error);
+    throw error;
+  }
 
-	return data;
+  return data;
 }
 
 /**
@@ -256,19 +256,40 @@ export async function createLinkedAccount(account) {
  * @returns {Promise<Array>} Array of linked accounts
  */
 export async function getLinkedAccounts(discordUserId, guildId) {
-	const { data, error } = await supabase
-		.from("linked_accounts")
-		.select("*")
-		.eq("discord_user_id", discordUserId)
-		.eq("guild_id", guildId)
-		.eq("verified", true);
+  const { data, error } = await supabase
+    .from("linked_accounts")
+    .select("*")
+    .eq("discord_user_id", discordUserId)
+    .eq("guild_id", guildId)
+    .eq("verified", true);
 
-	if (error) {
-		console.error("Error fetching linked accounts:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error fetching linked accounts:", error);
+    throw error;
+  }
 
-	return data || [];
+  return data || [];
+}
+
+/**
+ * Get all linked accounts for a guild (for leaderboard)
+ * @param {string} guildId - Discord guild ID
+ * @returns {Promise<Array>} Array of all linked accounts in the guild
+ */
+export async function getAllGuildLinkedAccounts(guildId) {
+  const { data, error } = await supabase
+    .from("linked_accounts")
+    .select("*")
+    .eq("guild_id", guildId)
+    .eq("platform", "codeforces")
+    .eq("verified", true);
+
+  if (error) {
+    console.error("Error fetching guild linked accounts:", error);
+    throw error;
+  }
+
+  return data || [];
 }
 
 /**
@@ -280,27 +301,27 @@ export async function getLinkedAccounts(discordUserId, guildId) {
  * @returns {Promise<boolean>} True if account is already linked
  */
 export async function isAccountLinkedByOther(
-	guildId,
-	platform,
-	username,
-	excludeUserId,
+  guildId,
+  platform,
+  username,
+  excludeUserId,
 ) {
-	const { data, error } = await supabase
-		.from("linked_accounts")
-		.select("discord_user_id")
-		.eq("guild_id", guildId)
-		.eq("platform", platform)
-		.ilike("username", username)
-		.eq("verified", true)
-		.neq("discord_user_id", excludeUserId)
-		.limit(1);
+  const { data, error } = await supabase
+    .from("linked_accounts")
+    .select("discord_user_id")
+    .eq("guild_id", guildId)
+    .eq("platform", platform)
+    .ilike("username", username)
+    .eq("verified", true)
+    .neq("discord_user_id", excludeUserId)
+    .limit(1);
 
-	if (error) {
-		console.error("Error checking account linkage:", error);
-		throw error;
-	}
+  if (error) {
+    console.error("Error checking account linkage:", error);
+    throw error;
+  }
 
-	return data && data.length > 0;
+  return data && data.length > 0;
 }
 
 export default supabase;
