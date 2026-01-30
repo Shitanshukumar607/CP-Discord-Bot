@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { cleanupExpiredVerifications } from "./services/supabase.client.js";
+import { startRoleSyncJob } from "./utils/roleSync.js";
 
 dotenv.config();
 
@@ -117,6 +118,7 @@ client.once(Events.ClientReady, (readyClient) => {
   console.log("═".repeat(50));
 
   startVerificationCleanupJob();
+  startRoleSyncJob(client);
 });
 
 client.on(Events.InteractionCreate, handleInteraction);
