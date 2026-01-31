@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import { Database } from "../types/db.types.js";
 import type {
   CodeforcesRank,
-  GuidConfig,
+  GuildConfig,
   LinkedAccounts,
   PendingVerification,
 } from "../types/types.js";
@@ -24,7 +24,7 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 /** Get guild configuration by guild ID */
 export async function getGuildConfig(
   guildId: string,
-): Promise<GuidConfig | null> {
+): Promise<GuildConfig | null> {
   const { data, error } = await supabase
     .from("guild_config")
     .select("*")
