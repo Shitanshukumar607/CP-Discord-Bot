@@ -28,7 +28,7 @@ async function respectRateLimit() {
   lastRequestTime = Date.now();
 }
 
-/**Make a rate-limited request to Codeforces API */
+/** Make a rate-limited request to Codeforces API */
 async function makeRequest<T>(
   endpoint: string,
   params: Record<string, string | number> = {},
