@@ -1,9 +1,17 @@
-import { getGuildConfig } from "../services/supabase.client.ts";
+import { GuildMember, Role, Collection } from "discord.js";
+import { getGuildConfig } from "../services/supabase.client.js";
+import type { CodeforcesRank } from "../types/types.js";
 
-/**
- * Assign the verified role to a user
- */
-export async function assignVerifiedRole(member, guildId) {
+export interface RoleAssignmentResults {
+  verifiedRole: boolean;
+  rankRole: boolean;
+  errors: string[];
+}
+
+export async function assignVerifiedRole(
+  member: GuildMember,
+  guildId: string,
+): Promise<boolean> {
   try {
     const config = await getGuildConfig(guildId);
 
@@ -21,7 +29,6 @@ export async function assignVerifiedRole(member, guildId) {
       return false;
     }
 
-    // Check if member already has the role
     if (member.roles.cache.has(role.id)) {
       console.log(`User ${member.user.tag} already has verified role`);
       return true;
@@ -36,14 +43,11 @@ export async function assignVerifiedRole(member, guildId) {
   }
 }
 
-/**
- * Assign Codeforces rank-based role to a user
- * @param {GuildMember} member - Discord guild member
- * @param {string} guildId - Guild ID
- * @param {string} rank - Codeforces rank (e.g., 'newbie', 'pupil')
- * @returns {Promise<boolean>} True if role was assigned
- */
-export async function assignRankRole(member, guildId, rank) {
+export async function assignRankRole(
+  member: GuildMember,
+  guildId: string,
+  rank: string,
+): Promise<boolean> {
   try {
     if (!rank) {
       console.log("No rank provided, skipping rank role assignment");
@@ -58,7 +62,8 @@ export async function assignRankRole(member, guildId, rank) {
     }
 
     const normalizedRank = rank.toLowerCase();
-    const roleId = config.rank_role_map[normalizedRank];
+    const rankRoleMap = config.rank_role_map as Record<string, string>;
+    const roleId = rankRoleMap[normalizedRank];
 
     if (!roleId) {
       console.log(`No role mapped for rank "${rank}" in guild ${guildId}`);
@@ -74,17 +79,15 @@ export async function assignRankRole(member, guildId, rank) {
       return false;
     }
 
-    // Remove other rank roles first (user should only have one rank role)
-    const allRankRoleIds = Object.values(config.rank_role_map);
-    const rolesToRemove = member.roles.cache.filter(
-      (r) => allRankRoleIds.includes(r.id) && r.id !== roleId,
+    const allRankRoleIds = Object.values(rankRoleMap);
+    const rolesToRemove: Collection<string, Role> = member.roles.cache.filter(
+      (r): r is Role => allRankRoleIds.includes(r.id) && r.id !== roleId,
     );
 
     if (rolesToRemove.size > 0) {
       await member.roles.remove(rolesToRemove, "Updating Codeforces rank role");
     }
 
-    // Add the new rank role if not already assigned
     if (!member.roles.cache.has(role.id)) {
       await member.roles.add(role, `Codeforces rank: ${rank}`);
       console.log(`Assigned ${rank} role to ${member.user.tag}`);
@@ -97,33 +100,33 @@ export async function assignRankRole(member, guildId, rank) {
   }
 }
 
-/**
- * Assign all applicable roles for a verified user
- * @param {GuildMember} member - Discord guild member
- * @param {string} guildId - Guild ID
- * @param {string|null} rank - Codeforces rank
- * @returns {Promise<Object>} Object with assignment results
- */
-export async function assignVerificationRoles(member, guildId, rank = null) {
-  const results = {
+/** Assign all applicable roles for a verified user */
+export async function assignVerificationRoles(
+  member: GuildMember,
+  guildId: string,
+  rank: CodeforcesRank | null = null,
+): Promise<RoleAssignmentResults> {
+  const results: RoleAssignmentResults = {
     verifiedRole: false,
     rankRole: false,
     errors: [],
   };
 
-  // Assign verified role
   try {
     results.verifiedRole = await assignVerifiedRole(member, guildId);
   } catch (error) {
-    results.errors.push(`Failed to assign verified role: ${error.message}`);
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
+    results.errors.push(`Failed to assign verified role: ${errorMessage}`);
   }
 
-  // Assign rank role for Codeforces
   if (rank) {
     try {
       results.rankRole = await assignRankRole(member, guildId, rank);
     } catch (error) {
-      results.errors.push(`Failed to assign rank role: ${error.message}`);
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
+      results.errors.push(`Failed to assign rank role: ${errorMessage}`);
     }
   }
 

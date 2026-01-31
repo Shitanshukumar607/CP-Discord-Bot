@@ -183,7 +183,7 @@ export async function createLinkedAccount(account: {
   discord_user_id: string;
   guild_id: string;
   username: string;
-  rank: CodeforcesRank;
+  rank: CodeforcesRank | null;
 }): Promise<LinkedAccounts> {
   const { discord_user_id, guild_id, username, rank } = account;
 
@@ -269,7 +269,7 @@ export async function getAllLinkedAccounts(): Promise<Array<LinkedAccounts>> {
 /** Update the rank of a linked account */
 export async function updateLinkedAccountRank(
   accountId: string,
-  newRank: CodeforcesRank,
+  newRank: string,
 ): Promise<LinkedAccounts> {
   const { data, error } = await supabase
     .from("linked_accounts")
