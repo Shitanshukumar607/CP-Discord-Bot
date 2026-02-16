@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 function loadJokes(): string[] {
   try {
-    const jokesPath = join(__dirname, "../data/jokes.txt");
+    const jokesPath = join(__dirname, "../../data/jokes.txt");
     const jokesContent = readFileSync(jokesPath, "utf-8");
     return jokesContent
       .split("\n")
