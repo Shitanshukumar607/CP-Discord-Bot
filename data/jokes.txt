@@ -1,199 +1,256 @@
-Your code runs so slow, even tourist would retire before it finishes.
-Your recursion is so deep, it's still looking for the base case from 2015.
-You call yourself a competitive programmer but your rating is still three digits.
-Your dynamic programming is so bad, you thought memoization was a memory foam mattress.
-Your brute force solution is so inefficient, TLE stands for "Totally Lost Efficiency."
-Your graph traversal is so lost, Dijkstra filed a missing persons report.
-You debug like a Codeforces round—chaotic and ends in tears.
-Your segment tree is so broken, even the leaves are crying.
-Your binary search has more bugs than a Division 4 contest.
-You submitted the same wrong answer 10 times hoping the judge would feel sorry for you.
-Your rating graph looks like a heart monitor—and it flatlined at 800.
-You're the reason Codeforces added Division 4.
-Even a random submission generator has better accuracy than you.
-Your "optimized" solution still gets TLE on the sample test case.
-You thought ICPC stood for "I Can't Program Correctly."
-Your code is so bad, lil mike mirz personally apologized for making Codeforces.
-You've been practicing for 3 years and tourist's alt still beats you.
-Your greedy algorithm is so bad, it picks the worst option every time.
-You think O(n!) is acceptable "for small inputs."
-Your solution passed pretests but failed systests—just like your life choices.
-You googled "how to solve A problem" during a Div 2 contest.
-Your code has more runtime errors than a Windows 95 machine.
-Your FFT implementation is so wrong, it stands for "Failure For Today."
-You think Fenwick Tree is a type of Christmas decoration.
-Your rating dropped so hard, it broke through the floor to Specialist.
-You submitted in Python for a problem with 10^8 operations. Bold strategy.
-Your DSU implementation creates more unions than a labor movement.
-Your hashing function has more collisions than a demolition derby.
-You're so slow at typing, the contest ends before you finish reading.
-Your editorial reading speed is slower than your O(n³) solution.
-You thought "competitive programming" meant arguing with the compiler.
-Your code is so unreadable, even ChatGPT refuses to explain it.
-You peaked at Pupil and called yourself a "rising star."
-Your understanding of bitmasking is limited to knowing it exists.
-You copy-paste templates but still manage to get WA on line 1.
-Your modular arithmetic is so wrong, you think 1000000007 is just a random number.
-You thought "two pointers" meant using both index fingers to type.
-Your LCA implementation finds the Lowest Common Ancestor of your bugs.
-You've never solved an interactive problem because you can't even interact with humans.
-Your string algorithms are so bad, KMP stands for "Kinda Messed up Pattern."
-You solve problems with "intuition" because you can't prove anything.
-Your rating is so low, Codeforces considers removing the color gray just for you.
-You thought sqrt decomposition meant taking square roots randomly.
-Your Bellman-Ford implementation is slower than actual Ford vehicles.
-You skip problems because "graphs are hard" and end up solving nothing.
-Your contest performance is inversely proportional to the prize pool.
-You blame the test cases when your logic is fundamentally broken.
-Your submission history is a museum of Wrong Answers.
-You think "offline queries" means asking questions after the contest.
-Your centroid decomposition decomposes into chaos.
-You've read Competitive Programming 3 but skipped all the hard chapters.
-Your treap implementation is such a trap.
-Your coordinate compression compresses your hopes and dreams too.
-You thought "persistent data structures" meant not deleting your failed code.
-Your range queries return the wrong range every single time.
-You still use bubble sort "for simplicity."
-Your contest rating is lower than the temperature in Siberia.
-You think DP optimization means adding more dimensions.
-Your topological sort has more cycles than a bike race.
-You submit before reading the problem fully, then blame the problem setter.
-Your Aho-Corasick automaton needs therapy.
-You thought "suffix array" was a grammatical concept.
-Your Heavy-Light Decomposition is just Heavy on bugs.
-You're the kind of person who TLEs on a problem with n ≤ 100.
-Your competitive programming career has more downs than a rollercoaster.
-You practice on Div 4 and call it "grinding."
-Your implementation skills are so bad, pseudocode outperforms you.
-You thought "link-cut tree" was about deforestation.
-Your matrix exponentiation raises bugs to the power of infinity.
-You learned segment trees from YouTube and still don't understand them.
-Your MLE is so frequent, Memory Limit Error became your middle name.
-You've memorized templates but still fail to use them correctly.
-Your solution is WA on test 2, and test 2 is just the sample input.
-You thought "Euler Tour" was a European vacation package.
-Your flow network has more leaks than a broken faucet.
-You're the human equivalent of a time limit exceeded error.
-Your problem-solving speed is measured in geological epochs.
-You thought "Mo's algorithm" was about the Three Stooges.
-Your virtual contests end with virtual tears.
-You submit with 1 second left and still get compilation error.
-Your rating history could be used to teach kids about falling graphs.
-You thought "sparse table" was a furniture term.
-Your implementation of Sieve of Eratosthenes sieves out all hope.
-You're the reason problem setters add "easy" to Div 2 A.
-Your debugging skills are limited to adding print statements and praying.
-Your code has more special cases than a hospital.
-You thought "expected value" meant expecting to get AC.
-Your stress testing reveals stress in your life, not your code.
-Your random shuffle is deterministically wrong every time.
-You claim to know advanced algorithms but struggle with two-sum.
-Your competitive programming setup costs more than your skills are worth.
-You thought "bit manipulation" meant manipulating British currency.
-Your contest rating fluctuates more than cryptocurrency.
-You've attended ICPC regionals only to experience free pizza.
-Your proof by AC is the only proof you know.
-Your code style is so bad, linters give up on life.
-Your union-find finds nothing but disappointment.
-You think "amortized complexity" means paying for TLE over time.
-Your cactus graph implementation is just a prickly disaster.
-You're the walking definition of "did not finish."
-Your submissions are so wrong, they've been archived as examples of what not to do.
-You thought "Lazy Propagation" was your work ethic during contests.
-Your binary indexed tree is indexed by your IQ—single digit.
-You read the problem statement three times and still solved the wrong problem.
-Your AC rate is lower than your chances of getting a girlfriend.
-You celebrate solving Div 2 A like you just won IOI.
-Your code comments are more confusing than your actual code.
-You thought "meet in the middle" was a relationship advice column.
-Your upsolving takes longer than the next contest starts.
-You're so bad at CP, even Newbie feels like a stretch.
-Your solution works on your machine but nowhere else in the universe.
-Your ternary search finds the maximum of your failures.
-You thought "game theory" meant playing video games.
-Your combinatorics is so wrong, you think nCr is a radio station.
-You submitted "Hello World" to a graph problem and expected partial credit.
-Your big O notation is just a big zero.
-You thought "sliding window" was about opening your browser.
-Your implementation is so slow, snails use it as a benchmark.
-You use long long for everything because you can't do math.
-Your debugging strategy is deleting code until it compiles.
-You thought "manacher's algorithm" was about managing your schedule.
-Your probability of solving D is statistically indistinguishable from zero.
-You call yourself a "problem solver" but create more problems than you solve.
-Your virtual rating would be negative if Codeforces allowed it.
-You thought "convex hull" was a type of ship.
-Your dp table has more dimensions than string theory.
-You've been stuck on the same problem for so long, it got archived.
-Your solution complexity is O(give up).
-You thought "Z-function" was about sleeping during contests.
-Your contest strategy is "hope for easy problems."
-You read tourist's code and thought it was encrypted.
-Your rating is so volatile, economists study it.
-You thought "centroid" was a type of Android phone.
-Your BFS visits nodes like you visit the gym—rarely.
-You've rage quit more contests than you've finished.
-Your DFS goes so deep, it found your buried dreams.
-You thought "Sprague-Grundy" was a law firm.
-Your segment tree update takes longer than the contest duration.
-You use recursion because you can't think iteratively.
-Your LeetCode premium subscription is your only premium quality.
-You thought "Catalan numbers" were Spanish phone numbers.
-Your time complexity analysis is just wishful thinking.
-You copy solutions and still get WA because you can't even paste correctly.
-Your competitive programming journey is more like a competitive programming stumble.
-You thought "Floyd-Warshall" was a boxing match.
-Your multiset usage creates more bugs than a rainforest.
-You've never solved a problem first try—not even A.
-Your "clean code" looks like abstract art—nobody understands it.
-You thought "policy-based data structures" were government regulations.
-Your problemsetting would make contestants quit the sport.
-You claim timeout but your logic was wrong from line 1.
-Your contribution on Codeforces is -42 and still dropping.
-You thought "sweep line" was a cleaning technique.
-Your editorial reading is just staring at symbols you don't understand.
-You've asked "is this problem solvable?" about a Div 2 A.
-Your C++ compiler files restraining orders against your code.
-You thought "small to large" was a clothing size guide.
-Your contest performance peaks at "participated."
-You memorized Red-Black trees but can't implement a basic BST.
-Your answer is always off by one—including your rating.
-You thought "number theory" was about memorizing phone numbers.
-Your submissions have more RE than a stuttering DJ.
-You solve problems in O(n²) when O(n) solutions exist because thinking is hard.
-Your graph coloring uses every color including "wrong answer red."
-You thought "bitset" was a dog training command.
-Your precomputation takes longer than just computing it every time.
-You've been a Pupil so long, Codeforces sent a graduation notice.
-Your AC submissions are so rare, they belong in a museum.
-Your code runs slower than dial-up internet.
-You thought "inclusion-exclusion" was about social dynamics.
-Your heuristics are just random guessing with extra steps.
-You still don't know the difference between <= and <.
-Your modular inverse is inversely related to your skills.
-You thought "digit DP" was counting on your fingers.
-Your debugging takes longer than rewriting the solution from scratch.
-You ask for hints on A problems and still don't get it.
-Your segment tree has more bugs than features.
-Your implementation is so bad, brute force looks elegant.
-You thought "Baby Step Giant Step" was a dance tutorial.
-Your contest history is a case study in disappointment.
-You've been practicing for years but still can't solve B in time.
-Your "optimal" solution is optimal at being wrong.
-You thought "Burnside's lemma" was a first aid technique.
-Your parsing skills are so bad, you fail on input reading.
-Your coordinate geometry is so off, GPS can't locate your answer.
-You thought "Pollard's rho" was a Greek fraternity.
-Your understanding of graphs is limited to pie charts.
-You've declared "I'll start practicing seriously tomorrow" for 500 days straight.
-Your bitwise operations are more like bit-unwise operations.
-You thought "Kosaraju's algorithm" was a cooking recipe.
-Your competitive programming rating is your best-kept secret.
-You submit without testing because you're "confident."
-Your edge cases have edge cases.
-You thought "Hungarian algorithm" was about the language.
-Your competitive programming book collection grows faster than your skills.
-Your "fast" I/O is the only fast thing about your submissions.
-You celebrate not getting last place like it's a victory.
-You thought "Tarjan's algorithm" was about traffic management.
-Your rubber duck debugging ended with the duck quitting.
+Your rating is so low, you think tourist is a travel blogger.
+Even Java is faster than your brain during a contest.
+You call it 'Optimal Substructure', I call it 'Copy-pasting from GeeksforGeeks'.
+Your code has more bugs than a tropical rainforest.
+You think 'accepted' is a social status.
+Your variable naming convention is 'a', 'b', 'c', and 'depression'.
+You spent 2 hours debugging only to realize you printed n instead of m.
+Your intuition is so bad, you think O(N!) is polynomial time.
+You're the reason the time limit is 2 seconds, not 1.
+Your max rating is lower than the contest number.
+You think DP stands for 'Deep Pain'.
+Your solution is so slow, it got TLE on the sample case.
+You only solve A and B, and even then, usually with a penalty.
+Your logic is as circular as a linked list with no null pointer.
+You think 'System Test' is a medical exam.
+Your code is so messy, the judge refused to compile it out of spite.
+You use long long for boolean variables just to be safe.
+Your complexity analysis is 'it feels fast enough'.
+You think segment trees grow in forests.
+Your rank is so high, integer overflow happens when calculating it.
+You refresh the standings page more than you write code.
+Your contribution is negative, just like your rating change.
+You think greedy works on everything, including your diet.
+Your template is longer than your actual solution.
+You think 'hashing' is what you do on Twitter.
+Your debugging strategy is adding cout << 'here' << endl everywhere.
+You think 'max flow' is a rap term.
+Your solution to every problem is 'sort and pray'.
+You think 'bitmask' is a superhero.
+Your rating graph looks like a downward slope.
+You celebrate solving a div 2 A like you won IOI.
+You think 'Grandmaster' is a chess term only.
+Your code smells worse than a frantic hackathon venue.
+You think 'rolling hash' is a drug reference.
+Your brute force is so weak, it can't even solve n=10.
+You think 'lazy propagation' describes your work ethic.
+You get WRONG ANSWER on test 1 and blame the compiler.
+You think 'disjoint set' is a broken relationship.
+Your favorite tag is 'implementation' because you can't think.
+You use Python for heavy recursion and complain about stack overflow.
+You think 'Fenwick tree' is a Harry Potter character.
+Your solution passed pretests but we all know it's failing system tests.
+You think 'backtracking' is what you do after a wrong submission.
+Your coding style is 'obfuscated by default'.
+You think 'Manacher' is a fancy dessert.
+Your rating is stable... at newbie.
+You think 'heavy-light decomposition' is a physics concept.
+Your best algorithm is 'random shuffle and check'.
+You think 'convex hull' is a boat.
+Your code is O(N^2) but you claim it's O(N log N) because of the constant factor.
+You think 'policy based data structures' are for law students.
+You blame the problem setter for your lack of skill.
+Your 'hello world' gets a compilation error.
+You think 'Fast I/O' is a car movie.
+You misuse std::map and wonder why you got TLE.
+You think 'trie' is a typo for 'tree'.
+Your solution is 100 lines of if-else statements.
+You think 'suffix automaton' is a robot.
+Your rating is imaginary, just like the square root of -1.
+You think 'sqrt decomposition' is a math problem.
+You use cin/cout without ios::sync_with_stdio(0) and cry about TLE.
+You think 'Euler tour' is a vacation package.
+Your competitive programming career is a 'runtime error'.
+You think 'KMP' is a measuring unit.
+You copy-paste from CP-Algorithms and still get WA.
+You think 'Gaussian elimination' is a video game mode.
+Your logic is flimsier than a house of cards in a hurricane.
+You think 'topological sort' is a fashion trend.
+You check the editorial before reading the problem statement.
+You think 'MST' stands for 'My Sad Tears'.
+Your recursive function has no base case, just like your improvement.
+You think 'centroid decomposition' is a biology term.
+You got accepted on a problem? Must be weak test cases.
+You think 'mod inverse' is a rebellious teenager.
+Your graph theory knowledge is restricted to 'it has nodes'.
+You think 'binary lifting' is a gym exercise.
+You submit the same code twice hoping specifically for a server glitch.
+You think 'segment tree beats' is a music genre.
+Your variable names are shorter than your attention span.
+You think 'Mo's algorithm' is owned by a guy named Mo.
+You use int when the answer can be 10^18.
+You think 'Z-function' is a sleep aid.
+Your solution complexity is O(Time Limit Exceeded).
+You think 'FFT' is a fast food restaurant.
+You implement a segment tree for a simple array sum.
+You think 'splay tree' is a yoga pose.
+Your output format is wrong, just like your life choices.
+You think 'bipartite matching' is a dating app feature.
+You brute force geometry problems.
+You think 'matrix exponentiation' is a sci-fi movie.
+Your code fails on edge cases, and on center cases too.
+You think 'meet-in-the-middle' is a negotiation tactic.
+You use a 2D array for N=10^5.
+You think 'treap' is a trap.
+Your greatest achievement is solving a problem with N=1.
+You think 'persistent segment tree' is a stubborn plant.
+You write a 500-line solution for a constructive problem.
+You think 'LCA' stands for 'Last Code Attempt'.
+You hardcode test cases and still fail.
+You think 'interactive problem' means talking to the judge.
+You sort the array when the problem asks for the original indices.
+You think 'sweep line' is a janitor's job.
+You forget to output a newline and get Presentation Error (if that still existed).
+You think 'geometry' is for architects.
+Your loop condition is while(true) and you wonder why it hangs.
+You think 'number theory' is just guessing primes.
+You use float for currency problems.
+You think 'Burnside lemma' is a burn treatment.
+Your contest history is a sea of red.
+You think 'Chinese Remainder Theorem' is a menu item.
+You solve problems by finding the pattern in sample outputs.
+You think 'Grundy numbers' is a 90s band.
+You use excessive macros to hide your incompetence.
+You think 'game theory' is studying Fortnite.
+Your rating hasn't moved since 2019.
+You think 'flow network' is a plumbing system.
+You think 'Lucas theorem' is a Star Wars reference.
+You forget to clear the adjacency list in mult-test inputs.
+You think 'dynamic connectivity' is a WiFi issue.
+You submit in C++17 because C++20 is 'too new' for you.
+You think 'suffix array' is a painful procedure.
+You count inversions by hand.
+You think 'sparse table' is minimalistic furniture.
+You declare arrays of size 10^9.
+You think 'miller rabin' is a person.
+Your solution is deterministic, deterministically wrong.
+You think 'pollard rho' is a strange dance.
+You use pow(a, b) with integers and get precision errors.
+You think 'inclusion-exclusion' is about social cliques.
+Your implementation of Dijkstra is actually BFS.
+You think 'shortest path' is a shortcut in Mario Kart.
+You confuse lower_bound and upper_bound every time.
+You think 'coordinate compression' is a zip file.
+You write recursive dp without memoization.
+You think 'knapsack' is strictly about hiking gear.
+You assume the graph is connected. Spoiler: It's not.
+You think 'articulation point' is a speech therapy term.
+You forget to handle negative numbers in modulo arithmetic.
+You think 'bridge' is just a card game.
+You use a set when you needed a multiset.
+You think 'strongly connected component' is a relationship goal.
+You get Memory Limit Exceeded on a Greedy problem.
+You think 'Euler path' is a hiking trail.
+You don't understand 0-based indexing.
+You think 'stack' is just for pancakes.
+You use std::endl instead of \n and time out.
+You think 'queue' is just British people standing in line.
+You overflow the stack with your massive recursion depth.
+You think 'deque' is a deck of cards.
+You sort a std::list.
+You think 'priority_queue' is a VIP line.
+You believe std::vector<bool> is a normal container.
+You think 'bitset' is a DJ tool.
+You confuse | and ||.
+You think 'xor' is a majestic mythical creature.
+You shift left by a negative amount.
+You think 'binary index tree' is a robot dog.
+You access array index -1.
+You think 'segmentation fault' is the judge's fault.
+You assume inputs are sorted. They aren't.
+You think 'interactive' problems are chatting with the admin.
+You define int main() but don't return 0; random exit codes go brrr.
+You think 'constructive algorithms' are for building houses.
+Your solution works for N=2, so it must work for N=10^5.
+You think 'greedy' is a deadly sin, so you avoid it.
+You use gets() in 2024 (or 2026).
+You think 'buffer overflow' is a river flooding.
+You submit the code for Problem B to Problem C.
+You think 'Ad Hoc' is a fish.
+You forget % mod at the intermediate steps.
+You think 'combinatorics' is a made-up word.
+You use memset on a vector.
+You think 1 << 40 fits in an int.
+You confuse priority_queue ordering.
+You think set involves unordered elements.
+You write O(N^3) for N=1000.
+You think map is O(1).
+You use unordered_map and get hacked.
+You think multiset::erase(val) removes one instance, not all.
+You declare variables inside the loop that should be outside.
+You think long long is too long to type, so you use int.
+You use a global array [100] for N=200000.
+You think the constraints are suggestions.
+You perform N queries of N complexity.
+You think comments improve runtime.
+You submit debug code printing the array.
+You think continue breaks the loop.
+You modify the collection while iterating over it.
+You think reak continues the loop.
+You cast to int before multiplying, causing overflow.
+You think the test cases are weak. They are stronger than you.
+You use cin >> char_array without checking bounds.
+You think memory is free real estate.
+You write a brute force for a flow problem.
+You think gcd(0, 0) is defined.
+You divide by zero and act surprised.
+You assume the input graph is a tree. It's a graph with cycles.
+You think std::sort is stable.
+You fail to handle the empty string case.
+You think string::npos is -1, but store it in an unsigned int.
+You use strlen inside the loop condition.
+You think standard library functions are slow, so you write slower ones.
+You try to parse input with scanf and fail format strings.
+You think eof works the way you think it does.
+You mix 0-based and 1-based indexing in the same function.
+You think push_back is O(N).
+You copy the whole vector in a function argument.
+You use const reference but still copy it somewhere else.
+You think uto explains the code for you.
+You are the reason we have 'Wrong Answer on test 2'.
+Your coding setup is an IDE from the 90s.
+You think VIM makes you a hacker, but you can't exit it.
+You type slowly and blame the keyboard.
+You macro everything including int, eturn, and ;.
+You forget to initialize your variables.
+You assume global variables are initialized to -1.
+You read N, but loop until M.
+You think ios_base::sync_with_stdio(0) is cheating.
+You include <bits/stdc++.h> in a C file.
+You use goto to escape loops.
+You think comments are for the weak.
+You solve the problem on paper but can't implement it.
+You leave TODO comments in your submitted code.
+You think ssert counts as error handling.
+You rely on undefined behavior.
+You think the compiler optimizes your bubblesort.
+You assume the answer fits in double but it needs long double.
+You check floating point equality with ==.
+You use eps = 1e-5 when 1e-9 is needed.
+You print YES instead of Yes.
+You print Case #i: instead of Case #i: .
+You miss the trailing space.
+You print extra trailing spaces.
+You fail to flush stdout in interactive problems.
+You think flush is for toilets.
+You copy a template that you don't understand.
+You paste a 1000 line template for A+B.
+You use a template that strictly uses defines.
+Your template defines int as long long.
+Your template has compilation warnings.
+You ignore compiler warnings.
+You suppress compiler warnings.
+You think -O3 fixes logic errors.
+You submit to the wrong contest.
+You register for the contest but don't show up.
+You solve problems in reverse order of difficulty.
+You spend the whole contest on problem A.
+You hack your own solution.
+You look at the standings and give up.
+You ask for test cases in the comments.
+You complain about the problem statement being unclear.
+You blame the translation.
+You blame the server lag.
+You blame your internet connection.
+You blame your mouse.
+
