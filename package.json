@@ -8,7 +8,9 @@
     "start": "tsc -p tsconfig.build.json && node dist/index.js",
     "build": "tsc -p tsconfig.build.json",
     "deploy": "node --experimental-strip-types src/deploy-commands.js",
-    "dev": "node --watch --experimental-strip-types src/index.ts"
+    "dev": "node --watch --experimental-strip-types src/index.ts",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "keywords": [
     "discord",
@@ -23,7 +25,8 @@
     "@supabase/supabase-js": "^2.39.0",
     "axios": "^1.6.2",
     "discord.js": "^14.14.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "vitest": "^4.0.18"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",

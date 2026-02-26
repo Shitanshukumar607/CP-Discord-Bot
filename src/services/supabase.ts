@@ -199,7 +199,7 @@ export async function createLinkedAccount(account: {
         rank,
       },
       {
-        onConflict: "discord_user_id,guild_id,username",
+        onConflict: "discord_user_id,guild_id",
       },
     )
     .select()
